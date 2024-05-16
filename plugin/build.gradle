@@ -23,8 +23,11 @@ apply plugin: "org.grails.grails-plugin"
 apply plugin: "org.grails.grails-gsp"
 apply plugin: "org.grails.grails-plugin-publish"
 
+springBoot {
+    mainClass = 'app.integration.tests.Application'
+}
 
-sourceCompatibility = targetCompatibility = 1.7
+sourceCompatibility = targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
