@@ -1,26 +1,17 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        maven { url "https://repo.grails.org/grails/core" }
-    }
-    dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
-        classpath "org.grails.plugins:hibernate5:7.3.0"
-        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:3.4.7"
-    }
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'war'
+    id 'org.grails.grails-web'
+    id 'com.bertramlabs.asset-pipeline'
+    id 'org.grails.grails-gsp'
+    id 'maven-publish'
 }
 
 def versionDependency = '1.90.0'
 
 version "0.1"
 group "app.integration.tests"
-
-apply plugin:"eclipse"
-apply plugin:"idea"
-apply plugin:"war"
-apply plugin:"org.grails.grails-web"
-apply plugin:"asset-pipeline"
-apply plugin:"org.grails.grails-gsp"
 
 repositories {
     mavenLocal()

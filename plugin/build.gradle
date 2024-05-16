@@ -1,28 +1,13 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        maven { url 'https://repo.grails.org/grails/core' }
-    }
-    dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
-    }
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'org.grails.grails-plugin'
+    id 'org.grails.grails-web'
+    id 'org.grails.grails-gsp'
 }
 
-
-def versionTxt = file("${rootProject.projectDir}/version.txt")
-def versionPlugin = versionTxt.exists() ? versionTxt.text.trim() : '0.1-SNAPSHOT'
 def versionDependency = '1.90.0'
-
 group "org.grails.plugins"
-version = versionPlugin
-
-
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: "org.grails.grails-plugin"
-apply plugin: "org.grails.grails-gsp"
-
-sourceCompatibility = targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
@@ -48,6 +33,11 @@ dependencies {
 
     implementation "net.bull.javamelody:javamelody-core:${versionDependency}"
 
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
 }
 
 grailsPublish {
