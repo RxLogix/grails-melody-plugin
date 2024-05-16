@@ -1,8 +1,8 @@
 package grails.melody.plugin
 
 import app.integration.tests.Application
+import grails.gorm.transactions.Rollback
 import grails.testing.mixin.integration.Integration
-import grails.transaction.Rollback
 import net.bull.javamelody.JdbcWrapper
 import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification

@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven { url 'https://repo.grails.org/grails/core' }
     }
     dependencies {
@@ -18,14 +19,8 @@ version = versionPlugin
 
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: "spring-boot"
 apply plugin: "org.grails.grails-plugin"
 apply plugin: "org.grails.grails-gsp"
-apply plugin: "org.grails.grails-plugin-publish"
-
-springBoot {
-    mainClass = 'app.integration.tests.Application'
-}
 
 sourceCompatibility = targetCompatibility = 1.8
 
@@ -35,15 +30,21 @@ repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
 
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
 
 dependencies {
-
-    provided "javax.servlet:javax.servlet-api:$javaxServletApiVersion"
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    provided "javax.servlet:javax.servlet-api:4.0.1"
     provided 'org.grails:grails-dependencies'
     provided 'org.grails:grails-web-boot'
     provided 'org.springframework.boot:spring-boot-starter-logging'
-    testCompile "org.grails:grails-gorm-testing-support:$grailsTestingSupportVersion"
-    testCompile "org.grails:grails-web-testing-support:$grailsTestingSupportVersion"
+    testCompile "org.grails:grails-gorm-testing-support:3.2.2"
+    testCompile "org.grails:grails-web-testing-support:3.2.2"
 
     compile "net.bull.javamelody:javamelody-core:${versionDependency}"
 
