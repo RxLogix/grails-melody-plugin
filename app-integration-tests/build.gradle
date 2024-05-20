@@ -75,7 +75,13 @@ bootRun {
     systemProperty springProfilesActive, System.getProperty(springProfilesActive)
 }
 
-bootRun.enabled = false
+tasks.withType(GroovyCompile) {
+    configure(groovyOptions) {
+        forkOptions.jvmArgs = ['-Xmx1024m']
+    }
+}
+// enable if you wish to package this plugin as a standalone application
+bootJar.enabled = false
 
 assets {
     minifyJs = true
