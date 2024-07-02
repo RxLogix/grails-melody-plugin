@@ -44,7 +44,7 @@ class MelodyConfig implements GrailsApplicationAware {
         melodyFilterBean.setAsyncSupported(true);
         melodyFilterBean.setName(MonitoringFilter.name);
         melodyFilterBean.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ASYNC);
-        def conf = GrailsMelodyUtil.getGrailsMelodyConfig(grailsApplication)?.javamelody
+        def conf = GrailsMelodyUtil.getGrailsMelodyConfig(grailsApplication)?.getProperty('javamelody')
         conf?.each {
             String name = it.key
             String value = it.value

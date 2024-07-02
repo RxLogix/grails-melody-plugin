@@ -9,10 +9,30 @@ _The goal of JavaMelody is to monitor applications in QA and production environm
 
 ### Installation ###
 
+For Grails < 4.x
 To install the plugin, just add a dependency as given at the top of [this page](http://plugins.grails.org/plugin/sergiomichels/grails-melody-plugin) (but runtime is enough instead of compile). For example:
-```yaml
+```groovy
 dependencies {
     runtime 'org.grails.plugins:grails-melody-plugin:1.xx.0'
+}
+```
+
+For Grails 6.x
+```groovy
+repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/RxLogix/grails-melody-plugin")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    
+
+dependencies {
+    runtime 'org.grails.plugins:grails-melody-plugin:6.0-JDK11-M2'
 }
 ```
 
