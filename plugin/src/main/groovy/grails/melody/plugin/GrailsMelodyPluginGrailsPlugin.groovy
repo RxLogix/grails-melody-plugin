@@ -3,6 +3,7 @@ package grails.melody.plugin
 import grails.plugins.Plugin
 import grails.util.Environment
 import net.bull.javamelody.JdbcWrapper
+import net.bull.javamelody.MelodyInterceptorEnhancer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.jdbc.datasource.DelegatingDataSource
@@ -20,7 +21,7 @@ class GrailsMelodyPluginGrailsPlugin extends Plugin {
     private static final Logger LOG = LoggerFactory.getLogger(GrailsMelodyPluginGrailsPlugin.class)
 
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = '3.2 > *'
+    def grailsVersion = '6.0 > *'
     def loadAfter = ['spring-security-core', 'acegi', 'shiro', 'quartz', 'hibernate']
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
@@ -38,7 +39,9 @@ class GrailsMelodyPluginGrailsPlugin extends Plugin {
     def developers = [
             [name: 'Liu Chao', email: 'liuchao@goal98.com'],
             [name: 'Emeric Vernat', email: 'evernat@free.fr'],
-            [name: 'Sérgio Michels', email: 'sergiomichelss@gmail.com']
+            [name: 'Sérgio Michels', email: 'sergiomichelss@gmail.com'],
+            [name: 'Anurag Kumar Gupta', email: 'anurag.gupta@rxlogix.com'],
+            [name: 'Sachin Verma', email: 'sachin.verma@rxlogix.com'],
     ]
 
     def issueManagement = [system: 'GitHub', url: 'https://github.com/javamelody/grails-melody-plugin/issues']
