@@ -32,7 +32,7 @@ repositories {
     
 
 dependencies {
-    runtime 'org.grails.plugins:grails-melody-plugin:6.0-JDK11-M2'
+    runtime 'org.grails.plugins:grails-melody-plugin:6.0-JDK11-M3'
 }
 ```
 
