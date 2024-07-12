@@ -10,8 +10,6 @@ plugins {
     id "eclipse"
 }
 
-def versionDependency = '1.99.0'
-
 version "0.1"
 group "app.integration.tests"
 

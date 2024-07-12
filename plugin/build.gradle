@@ -9,7 +9,6 @@ plugins {
     id "maven-publish"
 }
 
-def versionDependency = '1.99.0'
 group "org.grails.plugins"
 
 repositories {
@@ -27,31 +26,19 @@ configurations {
 
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    compileOnly "javax.servlet:javax.servlet-api:4.0.1"
-    compileOnly 'org.grails:grails-dependencies'
+    compileOnly "org.grails:grails-core"
     compileOnly 'org.grails:grails-web-boot'
+    compileOnly "org.grails.plugins:hibernate5"
+    compileOnly 'org.springframework.boot:spring-boot-autoconfigure'
     compileOnly 'org.springframework.boot:spring-boot-starter-logging'
-    testImplementation "org.grails:grails-gorm-testing-support"
-    testImplementation "org.grails:grails-web-testing-support"
-    implementation "net.bull.javamelody:javamelody-core:${versionDependency}"
 
+    compileOnly "javax.servlet:javax.servlet-api:${javaxServletApiVersion}"
+    implementation "net.bull.javamelody:javamelody-core:${versionDependency}"
 }
 
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
-}
-
-bootRun {
-    ignoreExitValue true
-    jvmArgs(
-            '-Dspring.output.ansi.enabled=always',
-            '-noverify',
-            '-XX:TieredStopAtLevel=1',
-            '-Xmx1024m')
-    sourceResources sourceSets.main
-    String springProfilesActive = 'spring.profiles.active'
-    systemProperty springProfilesActive, System.getProperty(springProfilesActive)
 }
 
 tasks.withType(GroovyCompile) {
