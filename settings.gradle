@@ -1,18 +1,3 @@
-pluginManagement {
-    repositories {
-        mavenLocal()
-        maven { url "https://repo.grails.org/grails/core" }
-    }
-    plugins {
-        id "org.grails.grails-web" version "6.2.0"
-        id "org.grails.grails-gsp" version "6.2.0"
-        id "com.bertramlabs.asset-pipeline" version "4.3.0"
-        id "com.github.erdi.webdriver-binaries" version "3.2"
-        id "com.gorylenko.gradle-git-properties" version "2.4.1"
-        id "org.grails.grails-plugin" version "6.2.0"
-    }
-}
-
 include 'app-integration-tests'
 include 'plugin'
 findProject(':plugin').name = 'grails-melody-plugin'

@@ -11,9 +11,9 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.boot.web.servlet.ServletContextInitializer
 import org.springframework.context.annotation.Bean
 
-import javax.servlet.DispatcherType
-import javax.servlet.ServletContext
-import javax.servlet.ServletException
+import jakarta.servlet.DispatcherType
+import jakarta.servlet.ServletContext
+import jakarta.servlet.ServletException
 
 /**
  * Class to initialize Melody Filter

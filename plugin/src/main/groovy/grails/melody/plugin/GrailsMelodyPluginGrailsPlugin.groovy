@@ -21,7 +21,7 @@ class GrailsMelodyPluginGrailsPlugin extends Plugin {
     private static final Logger LOG = LoggerFactory.getLogger(GrailsMelodyPluginGrailsPlugin.class)
 
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = '6.0 > *'
+    def grailsVersion = '7.0.0 > *'
     def loadAfter = ['spring-security-core', 'acegi', 'shiro', 'quartz', 'hibernate']
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
