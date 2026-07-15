@@ -16,7 +16,6 @@ dependencies {
     runtime 'org.grails.plugins:grails-melody-plugin:1.xx.0'
 }
 ```
-
 For Grails 6.x
 ```groovy
 repositories {
@@ -33,6 +32,25 @@ repositories {
 
 dependencies {
     runtime 'org.grails.plugins:grails-melody-plugin:6.0-JDK11-M4'
+}
+```
+
+For Grails 7.x (Java 17)
+```groovy
+repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/RxLogix/grails-melody-plugin")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    
+
+dependencies {
+    runtimeOnly 'org.grails.plugins:grails-melody-plugin:7.0.0-M1'
 }
 ```
 
